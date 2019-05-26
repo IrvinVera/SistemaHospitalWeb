@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Nueva consulta</h1>
+<mat-dialog-content>
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <input type="text" class="input-buscar-paciente" placeholder="Buscar paciente" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of options" [value]="option">
+                <img matListAvatar src="{{option.imagen}}" height="25"> 
+                <span>{{option.name}}</span>
+            </mat-option>            
+          </mat-autocomplete>
+        </mat-form-field>
+        <button mat-icon-button (click)="buscarPaciente()">
+            <mat-icon>search</mat-icon>
+        </button>
+      </form>       
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="onNoClick()">CANCELAR</button>
+    <button mat-button cdkFocusInitial>ACEPTAR</button>
+  </mat-dialog-actions>

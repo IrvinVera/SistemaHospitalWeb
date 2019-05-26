@@ -1,18 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RecpcionistaComponent } from './recpcionista/recpcionista.component';
+import { MaterialModule } from './material';
+import { ListaPacientesComponent } from './recpcionista/lista-pacientes/lista-pacientes.component';
+import { DialogNuevaConsultaComponent } from './recpcionista/dialog-nueva-consulta/dialog-nueva-consulta.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RecpcionistaComponent,
+    ListaPacientesComponent,
+    DialogNuevaConsultaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  entryComponents:[
+    DialogNuevaConsultaComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
