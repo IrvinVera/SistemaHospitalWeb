@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Paciente } from "src/app/modelos/Paciente";
 import { ListaEsperaNucleo } from 'src/app/nucleo/listaEspera.nucleo';
+import { MatDialog } from '@angular/material/dialog';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { DialogCancelarConsultaComponent } from '../dialog-cancelar-consulta/dialog-cancelar-consulta.component'
 
 @Component({
   selector: 'app-lista-pacientes',
@@ -12,7 +15,7 @@ export class ListaPacientesComponent implements OnInit {
   listaEspera: ListaEsperaNucleo;
   pacientesEspera: Array<Paciente>;
 
-  constructor() {
+  constructor(public dialog: MatDialog, private _snackBar: MatSnackBar) {
     this.listaEspera = new ListaEsperaNucleo();
     this.pacientesEspera = this.listaEspera.mostrar();
    }
@@ -25,8 +28,25 @@ export class ListaPacientesComponent implements OnInit {
   }
 
   cancelarConsulta(paciente){
-    console.log(this.pacientesEspera.indexOf(paciente));
-    //this.pacientesEspera.pop();
+    let indice = this.pacientesEspera.indexOf(paciente);
+    this.pacientesEspera.splice(indice, 1);
+    this._snackBar.open("Consulta cancelada", "Cerrar", {
+      duration: 2000,
+    }); 
   }
+
+  mostrarDialogoCancelarConsulta(pacienteSeleccionado){
+    const dialogoCancelarConsulta = this.dialog.open(DialogCancelarConsultaComponent, {   
+      data: pacienteSeleccionado
+    });
+
+    dialogoCancelarConsulta.afterClosed().subscribe(result => {
+      if(result){
+        this.cancelarConsulta(pacienteSeleccionado);
+      }
+    });
+  }
+
+  
 
 }

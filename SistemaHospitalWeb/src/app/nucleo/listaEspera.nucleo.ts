@@ -17,15 +17,11 @@ export class ListaEsperaNucleo{
         return new Array(paciente1,paciente2,paciente3, paciente4, paciente5, paciente6); // TO DO
     }
 
-    mover(paciente:Paciente){
+    posponer(){
         //TO DO
     }
 
-    posponer(paciente:Paciente){
-        //TO DO
-    }
-
-    quitar(paciente:Paciente){
+    quitar(indice: number){
         //TO DO
     }
 }

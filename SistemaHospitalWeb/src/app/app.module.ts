@@ -9,13 +9,15 @@ import { RecpcionistaComponent } from './recpcionista/recpcionista.component';
 import { MaterialModule } from './material';
 import { ListaPacientesComponent } from './recpcionista/lista-pacientes/lista-pacientes.component';
 import { DialogNuevaConsultaComponent } from './recpcionista/dialog-nueva-consulta/dialog-nueva-consulta.component';
+import { DialogCancelarConsultaComponent } from './recpcionista/dialog-cancelar-consulta/dialog-cancelar-consulta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecpcionistaComponent,
     ListaPacientesComponent,
-    DialogNuevaConsultaComponent
+    DialogNuevaConsultaComponent,
+    DialogCancelarConsultaComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { DialogNuevaConsultaComponent } from './recpcionista/dialog-nueva-consul
     ReactiveFormsModule
   ],
   entryComponents:[
-    DialogNuevaConsultaComponent
+    DialogNuevaConsultaComponent,
+    DialogCancelarConsultaComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

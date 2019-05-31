@@ -11,7 +11,7 @@
                 </ng-template>
                 {{paciente.nombre}} {{paciente.apellidos}}
                 <span class="example-spacer"></span>
-                <button mat-icon-button (click)="cancelarConsulta(paciente)" matTooltip="Cancelar consulta">
+                <button mat-icon-button (click)="mostrarDialogoCancelarConsulta(paciente)" matTooltip="Cancelar consulta">
                     <mat-icon aria-hidden="false" aria-label="Example heart icon">close</mat-icon>
                 </button>
             </mat-list-item>              

@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>Cancelar consulta</h1>
+<mat-dialog-content>
+    ¿Desea cancelar la consulta del paciente <b>{{paciente.nombre}} {{paciente.apellidos}}</b>?   
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button [mat-dialog-close]="false">CANCELAR</button>
+    <button mat-button [mat-dialog-close]="true" cdkFocusInitial>ACEPTAR</button>
+  </mat-dialog-actions>

@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import {FormControl} from '@angular/forms';
-
-export interface Paciente {
-  imagen: string;
-  name: string;
-  id: string;
-}
+import {Observable} from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
+import { PacienteNucleo } from '../../nucleo/paciente.nucleo'
+import { Paciente } from 'src/app/modelos/Paciente';
 
 @Component({
   selector: 'app-dialog-nueva-consulta',
@@ -17,22 +15,41 @@ export interface Paciente {
 
 
 export class DialogNuevaConsultaComponent implements OnInit {
-  myControl = new FormControl();
-  options: Paciente[] = [{imagen: './././assets/img/avatarHombre.png', name: 'Irvin Dereb Vera López', id: '1'},
-  {imagen: './././assets/img/avatarHombre.png', name: 'Raymundo de Jesús Pérez Castellanos', id: '2'}];
+  myControl = new FormControl();  
+  pacienteNucleo = new PacienteNucleo();
+  nombrePaciente: string;
+  pacientesFiltrados: Observable<Paciente[]>;
+  pacientes: Paciente[];
 
-  constructor(public dialogRef: MatDialogRef<DialogNuevaConsultaComponent>) { }  
+  constructor(public dialogRef: MatDialogRef<DialogNuevaConsultaComponent>) {     
+  }  
+
+  private iniciarInputAutocompletado(){
+    this.pacientesFiltrados = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(paciente => paciente ? this._pacientesFiltrados(paciente) : this.pacientes.slice())
+      );
+  }
+
+  private _pacientesFiltrados(value: string): Paciente[] {
+    const filterValue = value.toLowerCase();
+
+    return this.pacientes.filter(paciente => paciente.nombre.toLowerCase().indexOf(filterValue) === 0);
+  }
 
   ngOnInit() {
   }
 
-  onNoClick(): void {
-    this.dialogRef.close();
+  buscarPaciente(): void{    
+    if(this.nombrePaciente){
+      this.pacientes = this.pacienteNucleo.buscarPorNombre(this.nombrePaciente);
+      this.iniciarInputAutocompletado(); 
+    }       
   }
 
-
-  /*buscarPaciente(): void{
-    this.options = ['One','Two', 'Three'];
-  }*/
+  obtenerNombreCompleto(paciente:Paciente){
+    return paciente.nombre + " " + paciente.apellidos;
+  }
 
 }

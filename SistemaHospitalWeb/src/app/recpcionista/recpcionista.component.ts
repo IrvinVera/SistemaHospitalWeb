@@ -14,8 +14,9 @@ export class RecpcionistaComponent implements OnInit {
   ngOnInit() {
   }
 
-  openDialog() {
+  mostrarDialogoNuevaConsulta() {
     this.dialog.open(DialogNuevaConsultaComponent, {   
+      width: '35%'
     });     
   }
 
