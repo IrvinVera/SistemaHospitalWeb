@@ -12,18 +12,3 @@ mat-card{
       height: 45vh;
       overflow: auto;
   }
-  
-::-webkit-scrollbar-thumb{
-    border-radius: 10px;
-    background: #FFF;
-  }
-
-  mat-card:hover ::-webkit-scrollbar-thumb{
-    background: rgba(0,0,0,.26);
-  }
-
-
-::-webkit-scrollbar {
-    height: 4px;
-    width: 4px;        
-}

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Paciente } from "src/app/modelos/Paciente";
 import { ListaEsperaNucleo } from 'src/app/nucleo/listaEspera.nucleo';
 import { MatDialog } from '@angular/material/dialog';
-import {MatSnackBar} from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { DialogCancelarConsultaComponent } from '../dialog-cancelar-consulta/dialog-cancelar-consulta.component'
 
 @Component({
