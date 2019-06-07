@@ -15,7 +15,6 @@ export class ListaUsuariosComponent implements OnInit {
   constructor() {
     this.personaImp = new PersonaImplementacion();
     this.personas = this.personaImp.obtenerTodos();
-    console.table(this.personas);
    }
 
   ngOnInit() {

@@ -16,7 +16,7 @@ export class UsuariosComponent implements OnInit {
 
   mostrarDialogoUsuario(){
     this.dialog.open(DialogUsuarioComponent, {   
-      width: '35%'
+      width: '40%'
     }); 
   }
 

@@ -7,8 +7,7 @@ export class Persona{
     rol: string ;
     genero: string;
     fechaNacimiento: Date;
-    
-    
+
     constructor(idPersona: number, nombre: string, apellidos: string, correo: string, telefono: string,
         rol: string, genero: string, fechaNacimiento: Date){
             this.idPersona = idPersona;
