@@ -1,0 +1,10 @@
+.btn-nuevo-medicamento{
+    margin: 2% 2% 0 0;
+    float: right;
+}
+
+mat-card{
+    width: 50%;
+    height: 65vh;
+    margin: 2% 0 0 23%;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DialogUsuarioComponent } from './dialog-usuario/dialog-usuario.component'
+import { DialogUsuarioComponent } from './dialog-usuario/dialog-usuario.component';
+import { Persona } from 'src/app/modelos/Persona';
 
 @Component({
   selector: 'app-usuarios',
@@ -16,7 +17,8 @@ export class UsuariosComponent implements OnInit {
 
   mostrarDialogoUsuario(){
     this.dialog.open(DialogUsuarioComponent, {   
-      width: '40%'
+      width: '40%',
+      data: new Persona(null,"","","","","","",null),
     }); 
   }
 

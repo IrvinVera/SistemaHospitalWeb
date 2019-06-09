@@ -22,18 +22,25 @@ export class CoordinadorComponent {
     this.opened = true;
   }
 
+  cerrarNavbar(){
+    this.opened = false;
+  }
+
   cargarComponenteUsuarios(){
     this.componenteACargar = UsuariosComponent;
     this.titulo = "Usuarios";
+    this.cerrarNavbar();
   }
 
   cargarComponenteMedicamntos(){
     this.componenteACargar = MedicamentosComponent;
     this.titulo = "Medicamentos";
+    this.cerrarNavbar();
   }
 
   cargarComponenteConsultorios(){
     this.componenteACargar = ConsultoriosComponent;
     this.titulo = "Consultorios";
+    this.cerrarNavbar();
   }
 }

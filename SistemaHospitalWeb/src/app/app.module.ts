@@ -23,6 +23,9 @@ import { MedicamentosComponent } from './coordinador/medicamentos/medicamentos.c
 import { ConsultoriosComponent } from './coordinador/consultorios/consultorios.component';
 import { DialogUsuarioComponent } from './coordinador/usuarios/dialog-usuario/dialog-usuario.component';
 import { ListaUsuariosComponent } from './coordinador/usuarios/lista-usuarios/lista-usuarios.component';
+import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
+import { ListaMedicamentosComponent } from './coordinador/medicamentos/lista-medicamentos/lista-medicamentos.component';
+import { DialogMedicamentoComponent } from './coordinador/medicamentos/dialog-medicamento/dialog-medicamento.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +39,10 @@ import { ListaUsuariosComponent } from './coordinador/usuarios/lista-usuarios/li
     MedicamentosComponent,
     ConsultoriosComponent,
     DialogUsuarioComponent,
-    ListaUsuariosComponent
+    ListaUsuariosComponent,
+    InicioSesionComponent,
+    ListaMedicamentosComponent,
+    DialogMedicamentoComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +65,8 @@ import { ListaUsuariosComponent } from './coordinador/usuarios/lista-usuarios/li
     UsuariosComponent,
     MedicamentosComponent,
     ConsultoriosComponent,
-    DialogUsuarioComponent,    
+    DialogUsuarioComponent,  
+    DialogMedicamentoComponent,  
   ],
   providers: [],
   bootstrap: [AppComponent]

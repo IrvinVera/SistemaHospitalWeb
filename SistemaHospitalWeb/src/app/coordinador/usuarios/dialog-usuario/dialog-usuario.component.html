@@ -1,35 +1,35 @@
 <h1 mat-dialog-title>{{accion}} persona</h1>
 <mat-dialog-content>
-  <form #personaForm="ngForm">
+  <ng-form #personaForm="ngForm" (submit)="mostrarPersona()">
       <mat-grid-list cols="2" rowHeight="12vh">
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Nombre</mat-label>
-                  <input matInput type="text" name="nombre" [(ngModel)]="persona.nombre" required>
+                  <input matInput type="text" name="nombre" [ngModel]="persona.nombre" required>
                 </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Apellidos</mat-label>
-                  <input matInput type="text" name="apellidos" [(ngModel)]="persona.apellidos" required>
+                  <input matInput type="text" name="apellidos" [ngModel]="persona.apellidos" required>
                 </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Correo electrónico</mat-label>
-                  <input matInput type="email" name="correo" [(ngModel)]="persona.correo" required>
+                  <input matInput type="email" name="correo" [ngModel]="persona.correo" required>
                 </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Teléfono</mat-label>
-                  <input matInput type="tel" name="telefono" [(ngModel)]="persona.telefono" required>
+                  <input matInput type="tel" name="telefono" [ngModel]="persona.telefono" required>
                 </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                 <mat-label>Genero</mat-label>
-                <mat-select name="genero" [(ngModel)]="persona.genero" required>
+                <mat-select name="genero" [ngModel]="persona.genero" required>
                     <mat-option *ngFor="let genero of generos" 
                     [value]="genero">
                     {{genero}}
@@ -41,7 +41,7 @@
               <mat-form-field appearance="standard">
                   <mat-label>Fecha de nacimiento</mat-label>
                   <input matInput [matDatepicker]="picker" name="fechaNacimiento"
-                  [(ngModel)]="persona.fechaNacimiento" required>
+                  [ngModel]="persona.fechaNacimiento" required>
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                   <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
@@ -49,7 +49,7 @@
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Rol</mat-label>
-                  <mat-select name="rol" [(ngModel)]="persona.rol" required>
+                  <mat-select name="rol" [ngModel]="persona.rol" required>
                       <mat-option *ngFor="let rol of roles" 
                         [value]="rol">
                         {{rol}}
@@ -58,10 +58,10 @@
               </mat-form-field>              
           </mat-grid-tile>
         </mat-grid-list>                
-  </form>       
+  </ng-form>       
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button [mat-dialog-close]>CANCELAR</button>
-  <button mat-button (click)="mostrarPersona()"
+  <button mat-button (click)="cerrarDialog()">CANCELAR</button>
+  <button mat-button (click)="guardarInformacion(personaForm)"
   disabled="{{!personaForm.valid}}">GUARDAR</button>
 </mat-dialog-actions>

@@ -1,3 +1,10 @@
-<p>
-  medicamentos works!
-</p>
+<mat-card>
+  <mat-card-content>
+      <app-lista-medicamentos></app-lista-medicamentos>
+  </mat-card-content>
+</mat-card>
+
+<button mat-fab color="primary" class="btn-nuevo-medicamento"
+matTooltip="Nuevo medicamento" (click)="mostrarDialogoMedicamento()"> 
+  <mat-icon>add</mat-icon>
+</button>

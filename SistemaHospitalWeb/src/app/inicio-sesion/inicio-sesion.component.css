@@ -1,0 +1,29 @@
+.imagen{
+    background-color: white;
+}
+
+.uv-logo{
+    width: 50%;
+    height: 70vh;
+}
+
+mat-card{
+    width: 40%;
+}
+
+mat-form-field{
+    width: 65%;
+}
+
+@media(max-width:1125px){
+    .imagen{
+        display: none;
+        z-index: 1;
+    }
+
+    .card-iniciar-sesion{
+        width: 100% !important;
+        z-index: 2 !important;
+        position: relative !important;
+    }
+}

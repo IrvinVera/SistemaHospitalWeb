@@ -1,0 +1,36 @@
+<h1 mat-dialog-title>{{accion}} medicamento</h1>
+<mat-dialog-content>
+  <form #medicamentoForm="ngForm">
+      <mat-grid-list cols="2" rowHeight="12vh">
+          <mat-grid-tile>
+              <mat-form-field appearance="standard">
+                  <mat-label>Nombre</mat-label>
+                  <input matInput name="nombre" [(ngModel)]="medicamento.nombre" type="text" required>
+                </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+              <mat-form-field appearance="standard">
+                  <mat-label>Cantidad</mat-label>
+                  <input matInput type="number" name="cantidad" [(ngModel)]="medicamento.cantidad" required>
+                </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+              <mat-form-field appearance="standard">
+                  <mat-label>Presentación</mat-label>
+                  <input matInput type="text" name="presentacion" [(ngModel)]="medicamento.presentacion" required>
+                </mat-form-field>
+          </mat-grid-tile>
+          <mat-grid-tile>
+              <mat-form-field appearance="standard">
+                  <mat-label>Compuesto</mat-label>
+                  <input matInput type="text" name="compuesto" [(ngModel)]="medicamento.compuesto" required>
+                </mat-form-field>
+          </mat-grid-tile>
+        </mat-grid-list>                
+  </form>       
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]>CANCELAR</button>
+  <button mat-button
+  disabled="{{!medicamentoForm.valid}}">GUARDAR</button>
+</mat-dialog-actions>
