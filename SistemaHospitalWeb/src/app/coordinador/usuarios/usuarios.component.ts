@@ -39,7 +39,7 @@ export class UsuariosComponent implements OnInit {
         this.crearMensaje("Persona guardada");
       }
       if (result.mensaje == "error"){
-        this.crearMensaje("Error al guardar persona");
+        this.crearMensaje("Error al guardar la persona");
       }
     });
   }
@@ -68,14 +68,14 @@ export class UsuariosComponent implements OnInit {
     });
   }
 
-  eliminarPersona(){
+  eliminarPersona(){  
     this.personaService.eliminarPersona(this.personaSeleccionada.idPersona).subscribe(
       resultado => {
         var index = this.personas.indexOf(this.personaSeleccionada);
-        this.personas.slice(index, 1);
+        this.personas.splice(index, 1);
         this.crearMensaje("Persona eliminada");
       },
-      error => { this.crearMensaje("Error al eliminar persona"); }
+      error => { this.crearMensaje("Error al eliminar la persona"); }
     );
   }
 
@@ -96,7 +96,7 @@ export class UsuariosComponent implements OnInit {
         this.crearMensaje("Persona actualizada");
         break;
       case "error":
-        this.crearMensaje("Error al actualizar persona");
+        this.crearMensaje("Error al actualizar la persona");
       break;
       default:
         break;

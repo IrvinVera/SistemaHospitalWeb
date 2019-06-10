@@ -5,25 +5,25 @@
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Nombre</mat-label>
-                  <input matInput name="nombre" [(ngModel)]="medicamento.nombre" type="text" required>
+                  <input matInput name="nombre" [ngModel]="medicamento.nombre" type="text" required>
                 </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Cantidad</mat-label>
-                  <input matInput type="number" name="cantidad" [(ngModel)]="medicamento.cantidad" required>
+                  <input matInput type="number" name="cantidad" [ngModel]="medicamento.cantidad" required>
                 </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Presentación</mat-label>
-                  <input matInput type="text" name="presentacion" [(ngModel)]="medicamento.presentacion" required>
+                  <input matInput type="text" name="presentacion" [ngModel]="medicamento.presentacion" required>
                 </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Compuesto</mat-label>
-                  <input matInput type="text" name="compuesto" [(ngModel)]="medicamento.compuesto" required>
+                  <input matInput type="text" name="compuesto" [ngModel]="medicamento.compuesto" required>
                 </mat-form-field>
           </mat-grid-tile>
         </mat-grid-list>                
@@ -32,5 +32,5 @@
 <mat-dialog-actions align="end">
   <button mat-button [mat-dialog-close]>CANCELAR</button>
   <button mat-button
-  disabled="{{!medicamentoForm.valid}}">GUARDAR</button>
+  disabled="{{!medicamentoForm.valid}}" (click)="guardarInformacion(medicamentoForm)">GUARDAR</button>
 </mat-dialog-actions>

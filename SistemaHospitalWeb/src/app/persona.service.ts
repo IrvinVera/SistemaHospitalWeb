@@ -13,13 +13,11 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PersonaService {
-
-  private PersonaURL: string = "/api/Persona/obtenerPersonas";
-
+  
   constructor(private http: HttpClient) { }
 
   obtenerPersonas():Observable<Persona[]>{
-    return this.http.get<Persona[]>(this.PersonaURL);
+    return this.http.get<Persona[]>("/api/Persona/obtenerPersonas");
   }
 
   registrarPersona(persona: Persona): Observable<Persona> {

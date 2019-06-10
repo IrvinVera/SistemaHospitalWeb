@@ -6,6 +6,7 @@ import { HttpClientModule }    from '@angular/common/http';
 
 //Servicios
 import { PersonaService } from './persona.service';
+import { MedicamentoService } from './servicios/medicamento/medicamento.service'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -27,9 +28,9 @@ import { MedicamentosComponent } from './coordinador/medicamentos/medicamentos.c
 import { ConsultoriosComponent } from './coordinador/consultorios/consultorios.component';
 import { DialogUsuarioComponent } from './coordinador/usuarios/dialog-usuario/dialog-usuario.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
-import { ListaMedicamentosComponent } from './coordinador/medicamentos/lista-medicamentos/lista-medicamentos.component';
 import { DialogMedicamentoComponent } from './coordinador/medicamentos/dialog-medicamento/dialog-medicamento.component';
 import { DialogEliminarPersonaComponent } from './coordinador/usuarios/dialog-eliminar-persona/dialog-eliminar-persona.component';
+import { DialogEliminarMedicamentoComponent } from './coordinador/medicamentos/dialog-eliminar-medicamento/dialog-eliminar-medicamento.component';
 
 @NgModule({
   declarations: [
@@ -43,10 +44,10 @@ import { DialogEliminarPersonaComponent } from './coordinador/usuarios/dialog-el
     MedicamentosComponent,
     ConsultoriosComponent,
     DialogUsuarioComponent,
-    InicioSesionComponent,
-    ListaMedicamentosComponent,
+    InicioSesionComponent,  
     DialogMedicamentoComponent,
-    DialogEliminarPersonaComponent
+    DialogEliminarPersonaComponent,
+    DialogEliminarMedicamentoComponent
   ],
   imports: [
     BrowserModule,
@@ -72,9 +73,10 @@ import { DialogEliminarPersonaComponent } from './coordinador/usuarios/dialog-el
     ConsultoriosComponent,
     DialogUsuarioComponent,  
     DialogMedicamentoComponent, 
-    DialogEliminarPersonaComponent 
+    DialogEliminarPersonaComponent,
+    DialogEliminarMedicamentoComponent 
   ],
-  providers: [PersonaService],
+  providers: [PersonaService, MedicamentoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
