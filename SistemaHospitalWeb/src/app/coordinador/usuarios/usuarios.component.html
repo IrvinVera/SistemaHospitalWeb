@@ -1,6 +1,34 @@
 <mat-card>
     <mat-card-content>
-        <app-lista-usuarios></app-lista-usuarios>
+        <mat-form-field appearance="standard" class="form-field-full">
+            <mat-label>Buscar usuario</mat-label>
+            <input matInput>
+          </mat-form-field>
+        <button mat-icon-button matTooltip="Buscar">
+            <mat-icon>search</mat-icon>
+        </button>
+        
+        <mat-list>
+          <mat-list-item *ngFor="let persona of personas">    
+            <mat-icon mat-list-icon>face</mat-icon>
+            <h4 mat-line>{{persona.nombre}} {{persona.apellidos}}</h4>
+            <p mat-line> {{persona.rol}} </p>
+            <span class="espaciador"></span>
+            <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Opciones">
+                <mat-icon aria-hidden="false">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="mostrarDialogoUsuarioEditar(persona)">
+                  <mat-icon aria-hidden="false">edit</mat-icon>
+                  Editar
+                </button>
+                <button mat-menu-item (click)="mostrarDialogEliminar(persona)">
+                    <mat-icon aria-hidden="false">delete</mat-icon>
+                  Eliminar
+                </button>
+              </mat-menu>
+          </mat-list-item>  
+        </mat-list>
     </mat-card-content>
 </mat-card>
 

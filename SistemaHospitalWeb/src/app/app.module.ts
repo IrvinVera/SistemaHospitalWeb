@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material';
+import { HttpClientModule }    from '@angular/common/http';
+
+//Servicios
+import { PersonaService } from './persona.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,10 +26,10 @@ import { UsuariosComponent } from './coordinador/usuarios/usuarios.component';
 import { MedicamentosComponent } from './coordinador/medicamentos/medicamentos.component';
 import { ConsultoriosComponent } from './coordinador/consultorios/consultorios.component';
 import { DialogUsuarioComponent } from './coordinador/usuarios/dialog-usuario/dialog-usuario.component';
-import { ListaUsuariosComponent } from './coordinador/usuarios/lista-usuarios/lista-usuarios.component';
 import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { ListaMedicamentosComponent } from './coordinador/medicamentos/lista-medicamentos/lista-medicamentos.component';
 import { DialogMedicamentoComponent } from './coordinador/medicamentos/dialog-medicamento/dialog-medicamento.component';
+import { DialogEliminarPersonaComponent } from './coordinador/usuarios/dialog-eliminar-persona/dialog-eliminar-persona.component';
 
 @NgModule({
   declarations: [
@@ -39,10 +43,10 @@ import { DialogMedicamentoComponent } from './coordinador/medicamentos/dialog-me
     MedicamentosComponent,
     ConsultoriosComponent,
     DialogUsuarioComponent,
-    ListaUsuariosComponent,
     InicioSesionComponent,
     ListaMedicamentosComponent,
-    DialogMedicamentoComponent
+    DialogMedicamentoComponent,
+    DialogEliminarPersonaComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +61,8 @@ import { DialogMedicamentoComponent } from './coordinador/medicamentos/dialog-me
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    HttpClientModule
   ],
   entryComponents:[
     DialogNuevaConsultaComponent,
@@ -66,9 +71,10 @@ import { DialogMedicamentoComponent } from './coordinador/medicamentos/dialog-me
     MedicamentosComponent,
     ConsultoriosComponent,
     DialogUsuarioComponent,  
-    DialogMedicamentoComponent,  
+    DialogMedicamentoComponent, 
+    DialogEliminarPersonaComponent 
   ],
-  providers: [],
+  providers: [PersonaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
