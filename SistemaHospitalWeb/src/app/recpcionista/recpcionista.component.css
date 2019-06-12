@@ -1,8 +1,16 @@
-  .example-spacer {
-    flex: 1 1 auto;
-  }
 
   .btn-nueva-consulta{
     float: right;
     margin: 5% 2% 0 0;
   }
+
+  mat-card{
+    width: 50%;
+    height: 50vh;
+    margin: 5% 0% 0 23%;
+}
+
+mat-list{
+  height: 45vh;
+  overflow: auto;
+}

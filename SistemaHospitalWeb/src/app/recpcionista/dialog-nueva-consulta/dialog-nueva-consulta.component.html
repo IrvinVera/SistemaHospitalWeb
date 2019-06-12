@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Nueva consulta</h1>
 <mat-dialog-content>
-    <form>
+    <form #personaForm="ngForm">
       <mat-form-field class="example-full-width">
         <input matInput required placeholder="Buscar paciente" [(ngModel)]="nombrePaciente" [matAutocomplete]="auto" [formControl]="myControl">
         <mat-autocomplete #auto="matAutocomplete">
@@ -15,6 +15,6 @@
     </form>       
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button [mat-dialog-close]>CANCELAR</button>
-    <button mat-button cdkFocusInitial>ACEPTAR</button>
+    <button mat-button (click)="cerrarDialog()">CANCELAR</button>
+    <button mat-button (click)="agregarPaciente()">ACEPTAR</button>
   </mat-dialog-actions>

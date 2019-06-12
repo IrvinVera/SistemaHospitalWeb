@@ -1,11 +1,15 @@
-class Cuenta {
-    contraseña: string;
+import { Persona } from './Persona';
+
+export class Cuenta {    
     idCuenta: number;
     nombreUsuario: string;
+    contrasena: string;    
+    persona: Persona;
 
-    constructor(contraseña: string, idCuenta: number, nombreUsuario: string ){
-        this.contraseña = contraseña;
+    constructor(idCuenta: number, nombreUsuario: string, contrasena: string, persona: Persona ){
+        this.contrasena = contrasena;
         this.idCuenta = idCuenta;
-        this.nombreUsuario = nombreUsuario;
+        this.nombreUsuario = nombreUsuario;  
+        this.persona = persona;      
     }
 }

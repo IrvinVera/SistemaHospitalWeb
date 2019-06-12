@@ -13,3 +13,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-
     height: 4px;
     width: 4px;        
 }
+
+.example-spacer {
+  flex: 1 1 auto;
+}

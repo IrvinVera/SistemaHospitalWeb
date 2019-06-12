@@ -17,6 +17,17 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>{{titulo}}</span>
+      <span class="example-spacer"></span>
+      <button type="button" [matMenuTriggerFor]="menu"
+      mat-icon-button>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="cerrarSesion()">
+        <mat-icon aria-hidden="false">exit_to_app</mat-icon>
+        Cerrar sesión
+      </button>
+    </mat-menu>
     </mat-toolbar>
     <ng-container *ngComponentOutlet="componenteACargar"></ng-container> 
   </mat-sidenav-content>

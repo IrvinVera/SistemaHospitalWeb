@@ -8,25 +8,25 @@
         <mat-card-title>Iniciar sesión</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <form>
+        <ng-form #cuentaForm="ngForm">
           <mat-grid-list cols="1" rowHeight="12vh">
             <mat-grid-tile>
               <mat-form-field appearance="standard">
                   <mat-label>Nombre de usuario</mat-label>
-                  <input matInput type="text" required>
+                  <input matInput type="text" name="nombreUsuario" [ngModel]="cuenta.nombreUsuarios" required>
                 </mat-form-field>
           </mat-grid-tile>
           <mat-grid-tile>
             <mat-form-field appearance="standard">
                 <mat-label>Contraseña</mat-label>
-                <input matInput type="password" required>
+                <input matInput name="contrasena" [ngModel]="cuenta.contrasena" type="password" required>
               </mat-form-field>
         </mat-grid-tile>
           </mat-grid-list>
-        </form>
+        </ng-form>
       </mat-card-content>
       <mat-card-actions align="center">
-        <button mat-raised-button color="primary">INICIAR SESIÓN</button>
+        <button mat-raised-button color="primary" (click)="iniciarSesion(cuentaForm)">INICIAR SESIÓN</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

@@ -1,6 +1,44 @@
 <mat-card>
   <mat-card-content>
-      
+    <mat-form-field appearance="standard" class="form-field-full">
+      <mat-label>Buscar consultorio</mat-label>
+      <input matInput>
+    </mat-form-field>
+  <button mat-icon-button matTooltip="Buscar">
+      <mat-icon>search</mat-icon>
+  </button>
+  
+  <mat-list>
+    <mat-list-item *ngFor="let consultorio of consultorios">    
+      <mat-icon mat-list-icon>meeting_room</mat-icon>
+      <h4 mat-line>{{consultorio.numeroConsultorio}} | {{consultorio.estado}}</h4>
+      <p mat-line>Médico asignado: <span *ngIf="hayMedicoAsignado(consultorio.persona); else medicoNoAsignado">
+        {{consultorio.persona.nombre}} {{consultorio.persona.apellidos}} 
+      </span>      
+    </p>
+    <ng-template #medicoNoAsignado>Sin asignar</ng-template>
+      <span class="espaciador"></span>
+      <button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="Opciones">
+          <mat-icon aria-hidden="false">more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+          <button *ngIf="!hayMedicoAsignado(consultorio.persona)" mat-menu-item 
+          (click)="asignarMedico(consultorio, consultorio.persona)">
+            <mat-icon aria-hidden="false">add</mat-icon>
+            Asignar médico
+          </button>
+          <button *ngIf="hayMedicoAsignado(consultorio.persona)" mat-menu-item 
+          (click)="quitarMedico(consultorio)">
+            <mat-icon aria-hidden="false">close</mat-icon>
+            Quitar médico
+          </button>
+          <button mat-menu-item (click)="mostrarDialogEliminar(consultorio)">
+              <mat-icon aria-hidden="false">delete</mat-icon>
+            Eliminar
+          </button>
+        </mat-menu>
+    </mat-list-item>  
+  </mat-list>
   </mat-card-content>
 </mat-card>
 

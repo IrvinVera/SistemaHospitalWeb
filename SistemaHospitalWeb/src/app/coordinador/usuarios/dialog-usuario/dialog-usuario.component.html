@@ -57,6 +57,20 @@
                   </mat-select>
               </mat-form-field>              
           </mat-grid-tile>
+          <div *ngIf="esNuevoRegistro()">
+              <mat-grid-tile>
+                  <mat-form-field appearance="standard">
+                      <mat-label>Nombre de usuario</mat-label>
+                      <input matInput type="text" name="nombreUsuario" [ngModel]="cuenta.nombreUsuario" required>
+                  </mat-form-field>                                                     
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field appearance="standard">
+                    <mat-label>Constraseña</mat-label>
+                    <input matInput type="password" name="contrasena" [ngModel]="cuenta.constrasena" required>
+                </mat-form-field>
+            </mat-grid-tile>
+          </div>                          
         </mat-grid-list>                
   </ng-form>       
 </mat-dialog-content>

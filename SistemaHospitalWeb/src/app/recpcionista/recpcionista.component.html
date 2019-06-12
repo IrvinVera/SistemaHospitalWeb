@@ -4,12 +4,41 @@
         <span>Consultas</span>
         <span class="example-spacer"></span>
         <button mat-icon-button matTooltip="Notificaciones">
-            <mat-icon aria-hidden="false" aria-label="Example heart icon">notifications</mat-icon>
-        </button>        
+            <mat-icon aria-hidden="false" matBadge="{{notificanionesService.notificaciones}}" matBadgeColor="warn">notifications</mat-icon>
+        </button>    
+        <button type="button" [matMenuTriggerFor]="menu"
+          mat-icon-button>
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon aria-hidden="false">exit_to_app</mat-icon>
+            Cerrar sesión
+          </button>
+        </mat-menu>    
       </mat-toolbar-row>
 </mat-toolbar>
 
-<app-lista-pacientes></app-lista-pacientes>
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>Pacientes en espera</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let paciente of pacientes">
+              <img *ngIf="esHombre(paciente.genero); else avatarMujer" matListAvatar src="../../assets/img/avatarHombre.png">
+              <ng-template #avatarMujer>
+                <img matListAvatar src="../../assets/img/avatarMujer.png">
+              </ng-template>
+              {{paciente.nombre}} {{paciente.apellidos}}
+              <span class="example-spacer"></span>
+              <button mat-icon-button (click)="mostrarDialogoCancelarConsulta(paciente)" matTooltip="Cancelar consulta">
+                  <mat-icon aria-hidden="false" aria-label="Example heart icon">close</mat-icon>
+              </button>
+          </mat-list-item>              
+           </mat-list>
+    </mat-card-content>
+</mat-card>
 
 <button mat-fab color="primary" class="btn-nueva-consulta"
  matTooltip="Nueva consulta"

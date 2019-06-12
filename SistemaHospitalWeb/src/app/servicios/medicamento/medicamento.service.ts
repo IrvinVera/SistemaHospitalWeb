@@ -5,7 +5,8 @@ import { Medicamento } from 'src/app/modelos/Medicamento';
 import { catchError } from 'rxjs/operators';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json',
+  'Authorization': 'Bearer ' + localStorage.getItem("token") })
 };
 
 @Injectable({
@@ -16,7 +17,7 @@ export class MedicamentoService {
   constructor(private http: HttpClient) { }
 
   obtenerMedicamentos():Observable<Medicamento[]>{
-    return this.http.get<Medicamento[]>("/api/Medicamento/obtenerMedicamentos");
+    return this.http.get<Medicamento[]>("/api/Medicamento/obtenerMedicamentos", httpOptions);
   }
 
   registrarMedicamento(medicamento: Medicamento):Observable<Medicamento>{

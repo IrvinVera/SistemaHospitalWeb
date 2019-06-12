@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Nuevo consultorio</h1>
+<mat-dialog-content>
+  <form #consultorioForm="ngForm">
+    <mat-form-field appearance="standard">
+      <mat-label>Número de consultorio</mat-label>
+      <input matInput type="text" name="numeroConsultorio" [ngModel]="consultorio.numeroConsultorio" required>
+    </mat-form-field>            
+  </form>       
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]>CANCELAR</button>
+  <button mat-button
+  disabled="{{!consultorioForm.valid}}" (click)="guardarConsultorio(consultorioForm)">GUARDAR</button>
+</mat-dialog-actions>

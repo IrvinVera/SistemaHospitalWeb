@@ -6,14 +6,14 @@ import { HttpClientModule }    from '@angular/common/http';
 
 //Servicios
 import { PersonaService } from './persona.service';
-import { MedicamentoService } from './servicios/medicamento/medicamento.service'
+import { MedicamentoService } from './servicios/medicamento/medicamento.service';
+import { ConsultorioService } from './servicios/consultorio/consultorio.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RecpcionistaComponent } from './recpcionista/recpcionista.component';
 import { MaterialModule } from './material';
-import { ListaPacientesComponent } from './recpcionista/lista-pacientes/lista-pacientes.component';
 import { DialogNuevaConsultaComponent } from './recpcionista/dialog-nueva-consulta/dialog-nueva-consulta.component';
 import { DialogCancelarConsultaComponent } from './recpcionista/dialog-cancelar-consulta/dialog-cancelar-consulta.component';
 import { CoordinadorComponent } from './coordinador/coordinador.component';
@@ -31,12 +31,13 @@ import { InicioSesionComponent } from './inicio-sesion/inicio-sesion.component';
 import { DialogMedicamentoComponent } from './coordinador/medicamentos/dialog-medicamento/dialog-medicamento.component';
 import { DialogEliminarPersonaComponent } from './coordinador/usuarios/dialog-eliminar-persona/dialog-eliminar-persona.component';
 import { DialogEliminarMedicamentoComponent } from './coordinador/medicamentos/dialog-eliminar-medicamento/dialog-eliminar-medicamento.component';
+import { DialogConsultorioComponent } from './coordinador/consultorios/dialog-consultorio/dialog-consultorio.component';
+import { MedicoComponent } from './medico/medico.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecpcionistaComponent,
-    ListaPacientesComponent,
+    RecpcionistaComponent,    
     DialogNuevaConsultaComponent,
     DialogCancelarConsultaComponent,
     CoordinadorComponent,
@@ -47,7 +48,9 @@ import { DialogEliminarMedicamentoComponent } from './coordinador/medicamentos/d
     InicioSesionComponent,  
     DialogMedicamentoComponent,
     DialogEliminarPersonaComponent,
-    DialogEliminarMedicamentoComponent
+    DialogEliminarMedicamentoComponent,
+    DialogConsultorioComponent,
+    MedicoComponent
   ],
   imports: [
     BrowserModule,
@@ -74,9 +77,11 @@ import { DialogEliminarMedicamentoComponent } from './coordinador/medicamentos/d
     DialogUsuarioComponent,  
     DialogMedicamentoComponent, 
     DialogEliminarPersonaComponent,
-    DialogEliminarMedicamentoComponent 
+    DialogEliminarMedicamentoComponent,
+    DialogConsultorioComponent 
   ],
-  providers: [PersonaService, MedicamentoService],
+  providers: [PersonaService, MedicamentoService,
+     ConsultorioService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

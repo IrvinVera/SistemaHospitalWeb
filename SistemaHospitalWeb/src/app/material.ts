@@ -13,17 +13,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatBadgeModule} from '@angular/material/badge';
 import { NgModule } from '@angular/core';
 
 @NgModule({
   imports: [MatButtonModule, MatToolbarModule, MatIconModule, MatListModule,
      MatCardModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule, 
      MatFormFieldModule, MatInputModule, MatSnackBarModule, MatMenuModule, MatGridListModule, MatSelectModule,
-     MatDatepickerModule],
+     MatDatepickerModule, MatBadgeModule],
   exports: [MatButtonModule, MatToolbarModule, MatIconModule, MatListModule,
      MatCardModule, MatTooltipModule, MatDialogModule, MatAutocompleteModule, 
      MatFormFieldModule, MatInputModule, MatSnackBarModule, MatMenuModule, MatGridListModule, MatSelectModule,
-     MatDatepickerModule],
+     MatDatepickerModule, MatBadgeModule],
 })
 export class MaterialModule { 
 

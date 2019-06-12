@@ -3,6 +3,7 @@ import { Persona } from 'src/app/modelos/Persona';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { PersonaService } from 'src/app/persona.service';
+import { Cuenta } from 'src/app/modelos/Cuenta';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class DialogUsuarioComponent implements OnInit {
   generos: string[] = ["Masculino", "Femenino"];
   roles: string[] = ["Paciente", "Médico", "Recepcionista"];
   personaEditada: Persona;
+  cuenta: Cuenta = new Cuenta(0,"","", null);
 
   constructor(public dialogRef: MatDialogRef<DialogUsuarioComponent>,
     @Inject(MAT_DIALOG_DATA) public persona: Persona, private personaService: PersonaService) { 
@@ -23,6 +25,10 @@ export class DialogUsuarioComponent implements OnInit {
     }
 
   ngOnInit() {
+  }
+
+  esNuevoRegistro(){
+    return this.accion == "Nueva" ? true : false;
   }
 
   guardarInformacion(datosForm: NgForm){    
@@ -33,9 +39,15 @@ export class DialogUsuarioComponent implements OnInit {
     }
   }
 
-  guardarPersona(datos){
-    this.personaEditada = this.crearPersona(datos);
-    this.personaService.registrarPersona(this.personaEditada).subscribe(
+  crearCuenta(datos){
+    this.cuenta.nombreUsuario = datos.nombreUsuario;
+    this.cuenta.contrasena = datos.contrasena;
+    this.cuenta.persona = this.crearPersona(datos);
+  }
+
+  guardarPersona(datos){    
+    this.crearCuenta(datos);
+    this.personaService.registrarPersona(this.cuenta).subscribe(
       persona => { this.dialogRef.close({"mensaje":"guardado", "persona": persona}); }, 
       error =>{ this.dialogRef.close({"mensaje":error}); }
     );
