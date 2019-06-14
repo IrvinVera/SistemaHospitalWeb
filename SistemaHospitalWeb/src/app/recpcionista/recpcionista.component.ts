@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material';
 import { DialogCancelarConsultaComponent } from './dialog-cancelar-consulta/dialog-cancelar-consulta.component';
 import { Router } from '@angular/router';
 import { Autorizacion } from '../utilerias/Autorizacion';
+import { LoginService } from '../servicios/login/login.service';
 
 @Component({
   selector: 'app-recpcionista',
@@ -21,7 +22,7 @@ export class RecpcionistaComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private listaEsperaService: ListaEsperaService,
     private notificanionesService: NotificacionesService, private _snackBar: MatSnackBar,
-    private router: Router) { }
+    private router: Router, private loginService: LoginService) { }
 
 
   ngOnInit() {
@@ -90,8 +91,12 @@ export class RecpcionistaComponent implements OnInit {
         this.crearMensaje("Consulta cancelada");
       },
       error => this.crearMensaje("Error al cancelar la consulta")
-    );
-    
+    );    
+  }
+
+  cerrarSesion(){
+    this.loginService.cerrarSesion();
+    this.autorizacion.cargarPantalla();
   }
 
 }

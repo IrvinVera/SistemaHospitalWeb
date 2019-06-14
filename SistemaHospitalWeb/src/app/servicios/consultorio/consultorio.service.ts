@@ -17,7 +17,7 @@ export class ConsultorioService {
   constructor(private http: HttpClient) { }
 
   obtenerConsultorios():Observable<Consultorio[]>{
-    return this.http.get<Consultorio[]>("api/Consultorio/obtenerTodosLosConsultorios");
+    return this.http.get<Consultorio[]>("api/Consultorio/obtenerTodosLosConsultorios", httpOptions);
   }
 
   registrarConsultorio(consultorio: Consultorio):Observable<Consultorio>{

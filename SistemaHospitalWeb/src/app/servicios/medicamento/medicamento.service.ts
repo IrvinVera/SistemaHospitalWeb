@@ -37,7 +37,7 @@ export class MedicamentoService {
   }
 
   eliminarMedicamento(idMedicamento: number){
-    return this.http.post("api/Medicamento/eliminar", idMedicamento, httpOptions).pipe(
+    return this.http.post("api/Medicamento/eliminar?idMedicamento="+ idMedicamento, idMedicamento, httpOptions).pipe(
       catchError(error => {
         return throwError('error');
       })

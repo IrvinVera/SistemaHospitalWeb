@@ -23,8 +23,10 @@ export class ConsultoriosComponent implements OnInit {
 
   mostrarConsultorios(){
     this.consultorioService.obtenerConsultorios().subscribe(
-      consultorios => this.consultorios = consultorios
+      consultorios => {this.consultorios = consultorios;
+      console.log(consultorios)}
     );    
+    
   }
 
   hayMedicoAsignado(persona: Persona){

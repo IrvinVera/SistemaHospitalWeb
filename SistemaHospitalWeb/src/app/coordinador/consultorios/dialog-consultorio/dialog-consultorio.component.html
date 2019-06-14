@@ -8,7 +8,7 @@
   </form>       
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button [mat-dialog-close]>CANCELAR</button>
+  <button mat-button (click)="cerrarDialog()">CANCELAR</button>
   <button mat-button
   disabled="{{!consultorioForm.valid}}" (click)="guardarConsultorio(consultorioForm)">GUARDAR</button>
 </mat-dialog-actions>

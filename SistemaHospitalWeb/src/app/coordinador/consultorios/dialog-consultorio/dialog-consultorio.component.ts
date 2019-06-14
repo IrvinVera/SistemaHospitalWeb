@@ -29,4 +29,8 @@ export class DialogConsultorioComponent implements OnInit {
     );
   }
 
+  cerrarDialog(){
+    this.dialogRef.close({"mensaje":"cancelar"});
+  }
+
 }

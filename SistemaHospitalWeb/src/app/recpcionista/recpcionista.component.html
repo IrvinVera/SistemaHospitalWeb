@@ -11,7 +11,7 @@
           <mat-icon>account_circle</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item>
+          <button mat-menu-item (click)="cerrarSesion()">
             <mat-icon aria-hidden="false">exit_to_app</mat-icon>
             Cerrar sesión
           </button>
